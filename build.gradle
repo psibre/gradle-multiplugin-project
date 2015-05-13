@@ -1,3 +1,9 @@
-apply plugin: 'foo'
-apply plugin: 'bar'
-apply plugin: 'baz'
+project(':foo-project') {
+    apply plugin: 'foo'
+}
+project(':bar-project') {
+    apply plugin: 'bar'
+}
+project(':baz-project') {
+    apply plugin: 'baz'
+}

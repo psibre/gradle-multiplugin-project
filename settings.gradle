@@ -1,0 +1,3 @@
+include 'foo-project'
+include 'bar-project'
+include 'baz-project'

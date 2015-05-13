@@ -7,8 +7,13 @@ allprojects {
     }
 }
 
+project(':gradle-foo-plugin') {
+    dependencies {
+        compile project(':gradle-bar-plugin')
+    }
+}
+
 dependencies {
     runtime project(':gradle-foo-plugin')
-    runtime project(':gradle-bar-plugin')
     runtime project(':gradle-baz-plugin')
 }

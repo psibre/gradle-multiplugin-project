@@ -1,13 +1,3 @@
 project(':foo-project') {
     apply plugin: 'foo'
 }
-project(':bar-project') {
-    apply plugin: 'bar'
-}
-project(':baz-project') {
-    apply plugin: 'baz'
-}
-
-project(':foo-project') {
-    foo.dependsOn project(':bar-project').bar
-}

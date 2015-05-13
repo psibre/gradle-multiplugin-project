@@ -1,3 +1,3 @@
 include 'foo-project'
-include 'bar-project'
-include 'baz-project'
+include 'foo-project:bar-project'
+include 'foo-project:baz-project'

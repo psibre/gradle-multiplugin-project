@@ -13,7 +13,12 @@ project(':gradle-foo-plugin') {
     }
 }
 
+project(':gradle-bar-plugin') {
+    dependencies {
+        compile project(':gradle-baz-plugin')
+    }
+}
+
 dependencies {
     runtime project(':gradle-foo-plugin')
-    runtime project(':gradle-baz-plugin')
 }

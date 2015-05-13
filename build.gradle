@@ -1,0 +1,3 @@
+apply plugin: 'foo'
+apply plugin: 'bar'
+apply plugin: 'baz'

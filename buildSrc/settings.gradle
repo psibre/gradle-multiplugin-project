@@ -1,0 +1,3 @@
+include 'gradle-foo-plugin'
+include 'gradle-bar-plugin'
+include 'gradle-baz-plugin'

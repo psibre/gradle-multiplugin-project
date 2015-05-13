@@ -7,3 +7,7 @@ project(':bar-project') {
 project(':baz-project') {
     apply plugin: 'baz'
 }
+
+project(':foo-project') {
+    foo.dependsOn project(':bar-project').bar
+}

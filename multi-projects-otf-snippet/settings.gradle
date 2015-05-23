@@ -1,0 +1,16 @@
+import groovy.json.* // To load the JSON configuration file
+import java.util.*
+import utils.*
+
+// Load configuration file
+def slurper = new JsonSlurper()
+def config_file =  new File(System.getProperty("configuration"))
+def config = slurper.parseText(config_file.text)
+
+
+// Get File list
+(new File(config.file_list)).eachLine() { file ->
+    def basename = (new File(file)).getName() // yo can remove the extension using replace in case of
+    (new File("$basename")).mkdirs()
+    include "$basename"
+}

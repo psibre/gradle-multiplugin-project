@@ -1,0 +1,45 @@
+// "basic" configuration in it
+
+apply plugin: 'groovy'
+
+task wrapper(type: Wrapper) {
+    gradleVersion '2.4'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {}
+
+
+import groovy.json.* // To load the JSON configuration file
+import java.util.*
+
+// Load configuration
+def slurper = new JsonSlurper()
+def config_file =  new File(System.getProperty("configuration"))
+def config = slurper.parseText( config_file.text )
+project.ext.set("user_configuration", config)
+
+
+(new File(project.user_configuration.file_list)).eachLine() { file ->
+    def basename = (new File(file)).getName()
+
+    project(":$basename") {
+        project.task("run") {
+            doLast {
+                println("run $basename")
+            }
+        }
+    }
+}
+
+
+task run() {
+    (new File(project.user_configuration.file_list)).eachLine() { file ->
+        def basename = (new File(file)).getName()
+        dependsOn.add(":$basename:run")
+    }
+}
